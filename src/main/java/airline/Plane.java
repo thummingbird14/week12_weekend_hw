@@ -11,4 +11,12 @@ public class Plane {
     public PlaneType getPlaneType() {
         return planeType;
     }
+
+    public int getCapacityFromEnum(){
+        return this.planeType.getCapacity();
+    }
+
+    public int getWeightFromEnum(){
+        return this.planeType.getWeight();
+    }
 }

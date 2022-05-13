@@ -13,11 +13,17 @@ public class PlaneTest {
     public void before() {
         plane = new Plane(PlaneType.BOEING747);
     }
-
     @Test
     public void canGetPlaneType() {
         assertEquals(PlaneType.BOEING747, plane.getPlaneType());
     }
-
+    @Test
+    public void boeing747HasCapacity900(){
+        assertEquals(900,plane.getCapacityFromEnum());
+    }
+    @Test
+    public void boeing747HasTotalWeight183500(){
+        assertEquals(183500, plane.getWeightFromEnum());
+    }
 
 }
