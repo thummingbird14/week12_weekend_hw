@@ -42,4 +42,12 @@ public class FlightManagerTest {
     public void canCalculateWeightToBeReservedPerPassenger() {
         assertEquals(101.94, flightmanager1.calculateWeightToBeReservedPerPassenger(), 0.05);
     }
+
+    @Test
+    public void canCalculateTotalWeightBooked() {
+        flight1.bookPassenger(passenger1);
+        flight1.bookPassenger(passenger2);
+        flight1.bookPassenger(passenger3);
+        assertEquals(509.72, flightmanager1.calculateTotalWeightBooked(), 0.05);
+    }
 }
