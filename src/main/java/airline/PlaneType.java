@@ -3,7 +3,8 @@ package airline;
 public enum PlaneType {
     BOEING747(900, 183500),
     AIRBUSA340(950, 200000),
-    BOEING777(800, 150000);
+    BOEING777(800, 150000),
+    SMALLPLANE(2, 100000);
 
     private final int capacity;
     private final int weight;
