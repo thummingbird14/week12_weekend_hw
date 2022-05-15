@@ -35,5 +35,16 @@ public class FlightManager {
         totalWeightBooked = totalNumberBags * this.calculateWeightToBeReservedPerPassenger();
         return totalWeightBooked;
         }
+
+    public double calculateTotalWeightRemaining(){
+        int planeWeight;
+        double totalWeightBooked, totalWeightRemaining;
+        Plane plane1;
+        plane1 = flight.getPlane();
+        planeWeight = plane1.getWeightFromEnum();
+        totalWeightBooked = this.calculateTotalWeightBooked();
+        totalWeightRemaining = (0.5 * planeWeight) - totalWeightBooked;
+        return totalWeightRemaining;
+    }
     }
 

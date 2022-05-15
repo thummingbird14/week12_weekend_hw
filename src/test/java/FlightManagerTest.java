@@ -13,10 +13,8 @@ import static org.junit.Assert.assertEquals;
 
 public class FlightManagerTest {
     Flight flight1;
-    Flight flight2;
     Pilot pilot1;
     Plane plane1;
-    Plane plane2;
     CabinCrewMember purser;
     CabinCrewMember flightAttendant;
     Passenger passenger1;
@@ -28,9 +26,7 @@ public class FlightManagerTest {
     public void before(){
         pilot1 = new Pilot("Albert", Rank.CAPTAIN, "ADAMS655147AL9LU");
         plane1 = new Plane(PlaneType.BOEING747);
-        plane2 = new Plane(PlaneType.SMALLPLANE);
         flight1 = new Flight(pilot1, plane1, "FR756", "PMI", "EDI", "09:30");
-        flight2 = new Flight(pilot1, plane2, "FR123", "PMI", "GLA", "10:00");
         purser = new CabinCrewMember("Sarah", Rank.PURSER);
         flightAttendant = new CabinCrewMember("Fred", Rank.FLIGHTATTENDANT);
         passenger1 = new Passenger("Tanya", 2);
@@ -49,5 +45,13 @@ public class FlightManagerTest {
         flight1.bookPassenger(passenger2);
         flight1.bookPassenger(passenger3);
         assertEquals(509.72, flightmanager1.calculateTotalWeightBooked(), 0.05);
+    }
+
+    @Test
+    public void canCalculateTotalWeightRemaining() {
+        flight1.bookPassenger(passenger1);
+        flight1.bookPassenger(passenger2);
+        flight1.bookPassenger(passenger3);
+        assertEquals(91240.28, flightmanager1.calculateTotalWeightRemaining(), 0.05);
     }
 }
